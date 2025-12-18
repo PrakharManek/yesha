@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASSIFIED: GOKULDHAM FILE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050505;
+            color: #d1d1d1;
+            font-family: 'Special+Elite', 'Courier New', monospace;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; margin: 0; overflow: hidden;
+        }
+
+        /* The Redacted Look */
+        .dossier {
+            border: 1px solid #333;
+            padding: 40px;
+            max-width: 500px;
+            background: #0a0a0a;
+            box-shadow: 0 0 50px rgba(0,0,0,1);
+            position: relative;
+        }
+
+        .redacted {
+            background: #fff;
+            color: #fff;
+            padding: 0 5px;
+            cursor: pointer;
+            transition: background 0.5s ease;
+        }
+
+        .redacted:hover { background: transparent; color: #ff0000; }
+
+        #jetha-scanner {
+            width: 100%;
+            height: 5px;
+            background: #ff0000;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+            box-shadow: 0 0 20px #ff0000;
+        }
+
+        /* The Secret Reveal */
+        #the-reveal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 1000;
+            flex-direction: column; justify-content: center; align-items: center;
+            text-align: center;
+        }
+
+        .bday-gif {
+            width: 300px;
+            border: 1px solid #555;
+            filter: grayscale(1) sepia(0.5); /* Sexy vintage TMKOC look */
+        }
+
+        .btn-unlock {
+            background: none; border: 1px solid #ff0000; color: #ff0000;
+            padding: 10px 20px; margin-top: 20px; cursor: pointer;
+            font-family: 'Special Elite';
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dossier" id="main-dossier">
+        <h2 style="color: #ff0000; letter-spacing: 5px;">CLASSIFIED</h2>
+        <p><b>SUBJECT:</b> [NAME]</p>
+        <p><b>CRIME:</b> Being too <span class="redacted">SEXY AND COOL</span> for Gokuldham.</p>
+        <p><b>ASSOCIATES:</b> Known associate of Jethalal Gada. Suspected <span class="redacted">JALEBI-FAFDA</span> addict.</p>
+        <p><b>INTEL:</b> Subject is turning [AGE] today. They think they are smart, but they are a total <span class="redacted">DOBI / DOBO</span>.</p>
+        <br>
+        <p style="font-size: 0.8rem; color: #555;">[ HOVER OVER WHITE BOXES TO REVEAL TRUTH ]</p>
+        <button class="btn-unlock" onclick="startScan()">AUTHORIZE IDENTITY</button>
+        
+        <div id="jetha-scanner"></div>
+    </div>
+
+    <div id="the-reveal">
+        <img src="https://media.tenor.com/7S8-oQd9-mAAAAAM/jethalal-babita-ji.gif" class="bday-gif">
+        <h1 style="font-size: 3rem; margin-top: 20px; letter-spacing: 10px;">HAPPY BIRTHDAY</h1>
+        <p style="max-width: 400px; line-height: 1.8;">
+            You aren't just a friend; you are the <b>"Soda-Water"</b> to my long day. 
+            May your life be as smooth as Jethalal's hair and as lucky as his crush on Babita Ji. 
+            Stay unique, stay crazy, and stay mine.
+        </p>
+        <p style="color: #ff0000; margin-top: 30px;">- THE GADA INTELLIGENCE AGENCY -</p>
+    </div>
+
+    <script>
+        function startScan() {
+            const scanner = document.getElementById('jetha-scanner');
+            const dossier = document.getElementById('main-dossier');
+            const reveal = document.getElementById('the-reveal');
+            
+            scanner.style.display = 'block';
+            let pos = 0;
+            let interval = setInterval(() => {
+                if (pos >= 100) {
+                    clearInterval(interval);
+                    dossier.style.display = 'none';
+                    reveal.style.display = 'flex';
+                } else {
+                    pos++;
+                    scanner.style.top = pos + '%';
+                }
+            }, 30);
+            
+            // Play "Hey Maa Mataji" sound
+            let audio = new Audio('https://www.myinstants.com/media/sounds/jethalal-hey-maa-mataji.mp3');
+            audio.play();
+        }
+    </script>
+</body>
+</html>
